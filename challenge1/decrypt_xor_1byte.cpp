@@ -6,54 +6,10 @@
 #include <iostream>
 using namespace std;
 
-unordered_map<char, double> english_letter_frequency = {
-    {'e', 12.70},
-    {'t', 9.06},
-    {'a', 8.17},
-    {'o', 7.51},
-    {'i', 6.97},
-    {'n', 6.75},
-    {'s', 6.33},
-    {'h', 6.09},
-    {'r', 5.99},
-    {'d', 4.25},
-    {'l', 4.03},
-    {'c', 2.78},
-    {'u', 2.76},
-    {'m', 2.41},
-    {'w', 2.36},
-    {'f', 2.23},
-    {'g', 2.02},
-    {'y', 1.97},
-    {'p', 1.93},
-    {'b', 1.29},
-    {'v', 0.98},
-    {'k', 0.77},
-    {'j', 0.15},
-    {'x', 0.15},
-    {'q', 0.10},
-    {'z', 0.07}
-};
-
-const string other_characters = " .,:;!?()[]{}#$*\'";
-const double base_score = 0.1;
-
-unordered_map<int, double> get_letter_scores() {
-    unordered_map<int, double> letter_scores;
-    for (auto [letter, frequency] : english_letter_frequency) {
-        letter_scores[static_cast<int>(letter)] = frequency / 100.0 + base_score;
-    }
-    for (auto letter : other_characters) {
-        letter_scores[static_cast<int>(letter)] = base_score;
-    }
-    return letter_scores;
-}
-
 double score_decrypted_bytes(const string& b) {
-    auto letter_scores = get_letter_scores();
     double score = 0;
     for (auto c : b) {
-        score += letter_scores[static_cast<int>(tolower(c))];
+      score += isalpha(c);
     }
     return score;
 }
