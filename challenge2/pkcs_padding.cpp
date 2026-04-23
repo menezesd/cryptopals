@@ -4,15 +4,9 @@
 using namespace std;
 
 string pkcs7_pad(const string& message, int block_size) {
-    // If the length of the given message is already equal to the block size, there is no need to pad
-    if (message.size() == block_size) {
-        return message;
-    }
-
-    // Otherwise compute the padding byte and return the padded message
-    char ch = block_size - message.size() % block_size;
+    int pad_len = block_size - message.size() % block_size;
     string padded_message = message;
-    padded_message.append(ch, ch);
+    padded_message.append(pad_len, static_cast<char>(pad_len));
     return padded_message;
 }
 
