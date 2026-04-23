@@ -1,0 +1,14 @@
+__pycache__/
+*.pyc
+
+# Compiled binaries (rebuild with `make`)
+challenge2/10_cbc_mode
+challenge2/11_ecb_cbc_oracle
+challenge2/13_ecb_cut_paste
+challenge2/16_cbc_bitflip
+challenge2/18_ctr_mode
+challenge3/21_mt19937
+challenge3/22_crack_mt_seed
+challenge3/23_clone_mt
+challenge4/28_sha1
+challenge5/33_dh
